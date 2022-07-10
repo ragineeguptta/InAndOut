@@ -39,7 +39,36 @@ namespace InAndOut.Controllers
             return View(obj);
         }
 
-       //  get delete
+        //  get update
+        public IActionResult Update(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _db.Fees.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
+        // post update
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(Fee obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Fees.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
+
+        //  get delete
         public IActionResult Delete(int? id)
         {
             if (id == null || id==0)

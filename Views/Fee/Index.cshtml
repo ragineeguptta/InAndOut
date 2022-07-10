@@ -23,6 +23,7 @@
         <tr>
             <th width="30%" scope="col">Sr. No.</th>
             <th width="30%" scope="col">Student Fee</th>
+            <th width="40%" scope="col"></th>
         </tr>
     </thead>
     @foreach(var item in Model)
@@ -33,7 +34,7 @@
                 <td width="30%">@item.Amount</td>
                 <td width="40%">
                     <div class="col-6 text-right">
-         <a asp-controller="Fee" asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-primary mx-1">Edit </a>
+         <a asp-controller="Fee" asp-action="Update" asp-route-Id="@item.Id" class="btn btn-primary mx-1">Update </a>
          <a asp-controller="Fee" asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger mx-1">Delete </a>
      </div>
                 </td>
