@@ -31,6 +31,12 @@
             <tr>
                 <td width="30%" scope="row">@item.Id</td>
                 <td width="30%">@item.Amount</td>
+                <td width="40%">
+                    <div class="col-6 text-right">
+         <a asp-controller="Fee" asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-primary mx-1">Edit </a>
+         <a asp-controller="Fee" asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger mx-1">Delete </a>
+     </div>
+                </td>
             </tr>
         </tbody>
         }
