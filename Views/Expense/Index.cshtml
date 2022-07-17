@@ -3,16 +3,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index-Expense</h1>
-
-
 <div class="container p-3">
  <div class="row pt-4">
      <div class="col-6">
-         <h2>Students Name</h2>
+         <h2>Expenses Name</h2>
      </div>
      <div class="col-6">
-         <a asp-controller="Expense" asp-action="Create" class="btn btn-primary">Add New Fees</a>
+         <a asp-controller="Expense" asp-action="Create" class="btn btn-primary">Add New Expenses</a>
      </div>
  </div>
  <br />
@@ -21,23 +18,16 @@
  <table class="table">
     <thead class="thead-dark">
         <tr>
-            <th width="30%" scope="col">Sr. No.</th>
-            <th width="30%" scope="col">Student Fee</th>
-            <th width="40%" scope="col"></th>
+            <th width="30%" scope="col">Expense</th>
+            <th width="30%" scope="col">Amount</th>
         </tr>
     </thead>
     @foreach(var item in Model)
     {
         <tbody>
             <tr>
-                <td width="30%" scope="row">@item.Id</td>
-                <td width="30%">@item.Name</td>
-                <td width="40%">
-                    <div class="col-6 text-right">
-         <a asp-controller="Expense" asp-action="Update" asp-route-Id="@item.Id" class="btn btn-primary mx-1">Update </a>
-         <a asp-controller="Expense" asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger mx-1">Delete </a>
-     </div>
-                </td>
+                <td width="30%">@item.ExpenseName</td>
+                <td width="30%">@item.Amount</td>
             </tr>
         </tbody>
         }
@@ -45,6 +35,7 @@
     }
     else
     {
-        <p>No Students are available here</p>
+        <p>No Expenses are available here</p>
     }
 </div>
+
